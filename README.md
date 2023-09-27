@@ -42,15 +42,15 @@ These roles will be used to deploy applications using AWS CodeDeploy.
 User data : This user data includes installation of some software like aws codedeploy, aws cli etc.
 
 #!/bin/bash
-sudo yum -y update
-sudo yum -y install ruby
-sudo yum -y install wget
-cd /home/ec2-user
-wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install
-sudo chmod +x ./install
-sudo ./install auto
-sudo yum install -y python-pip
-sudo pip install awscli
+| sudo yum -y update |
+| sudo yum -y install ruby |
+| sudo yum -y install wget |
+| cd /home/ec2-user |
+| wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install |
+| sudo chmod +x ./install |
+| sudo ./install auto |
+| sudo yum install -y python-pip |
+| sudo pip install awscli |
 
 * Once the instance are up and running assign the fist created IAM role to all 4 EC2 instances
 
@@ -163,9 +163,12 @@ Note: create a new security group and open port 80(http) and 22(ssh) and attach 
 
 -Configure the build.
 
-    * In Source code management select git and provide your github repo link.
+  *In Source code management select git and provide your github repo link and make sure the files related to the project are available in repo.
     
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/38d13d99-ced0-4484-8d48-2ee867aeb093)
+
+<img width="639" alt="image" src="https://github.com/Vicky2KR/Code-deploy/assets/115537512/7ee126f7-d177-433f-8a60-ceeb3c3b18c6">
+
 
 -In Build Triggers section select POLL SCM.
 
