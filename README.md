@@ -17,6 +17,16 @@ We are going to achieve the below objectives with the project
 
 
 Solution : 
+* Jenkins will be used to automate the build, test, and deployment process. It will be triggered whenever there is a code push to the repository. Jenkins will build and test the web application, and then deploy it to the EC2 instances using CodeDeploy.
+
+* An ALB will be used to distribute traffic to the EC2 instances. It will also be used to health check the EC2 instances and automatically remove unhealthy instances from the load balancer pool.
+
+* An auto scaling group will be used to manage the EC2 instances. It will automatically scale up the number of EC2 instances when the load increases and scale down the number of EC2 instances when the load decreases.
+
+* CodeDeploy will be used to deploy the web application to the EC2 instances. It will pull the latest code from the repository and deploy it to the EC2 instances.
+
+* We use an S3 bucket in this project to store the web application code and artifacts.
+This solution will provide a scalable and reliable way to deploy and manage your web application.
 
 <img width="425" alt="image" src="https://github.com/Vicky2KR/Code-deploy/assets/115537512/76866f96-0cf0-4bbc-93fc-ecbc0bd70be4">
 
@@ -27,7 +37,7 @@ Solution :
 2. Codedeplyrole
 These roles will be used to deploy applications using AWS CodeDeploy.
 
-![image](https://github.com/Vicky2KR/CI-CD-using-Jenkins-and-AWS-Codedeploy/assets/115537512/2a327b4d-b4b8-47c7-b3ea-981bba7a69d4)
+![image](https://github.com/Vicky2KR/CI-CD-using-Jenkins-and-AWS-Codedeploy/assets/115537512/0b31f353-cf3f-4f63-a64a-c45515265dd9)
 
 
 
@@ -223,11 +233,21 @@ As soon as we will hit the Build Now button the job will run and trigger for cod
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/9e598955-bb9c-4f9d-8ae4-073bcbba79b6)
 
-**Step 10: Go to AWS Load balancer portal and go to that particular ELB we have Created and copy the DNS and paste it on browser , our application will be running.**
+and we can see that data is getting stored in the s3 bucket as well.
 
-![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/87a58ac8-3416-4bd9-9019-8179cefd73d9)
+<img width="768" alt="image" src="https://github.com/Vicky2KR/CI-CD-using-Jenkins-and-AWS-Codedeploy/assets/115537512/6f49d099-99cf-4298-877a-e61b0320a1af">
 
-**This is the first version of application. Now if i made any change to the code it will automatically reflect to the Web browser within some minutes.**
+
+**Step 10:Once the deployment is succeeded, Go to AWS Load balancer portal and go to that particular ELB we have Created and copy the DNS and paste it on browser , our application will be running.**
+
+<img width="480" alt="image" src="https://github.com/Vicky2KR/CI-CD-using-Jenkins-and-AWS-Codedeploy/assets/115537512/6c892eac-16ed-4e7e-8e80-6bfb518bdca0">
+
+
+**This is the first version of application.**
+
+<img width="768" alt="image" src="https://github.com/Vicky2KR/CI-CD-using-Jenkins-and-AWS-Codedeploy/assets/115537512/8aaf5011-637d-43a4-867d-e3f9cd6e1cb7">
+
+**Now if i made any change to the code it will automatically reflect to the Web browser within some minutes.**
 
 I have modified the file and saved it.
 
