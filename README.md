@@ -1,6 +1,6 @@
 # Code-deploy
 
-This project is to Set up a CI/CD pipeline using Jenkins, Github, Amazon Codedeploy and AWS EC2.
+**This project is to Set up a CI/CD pipeline using Jenkins, Github, Amazon Codedeploy and AWS EC2.**
 
 We are going to achieve the below objectives with the project
 
@@ -21,7 +21,7 @@ Solution :
 <img width="425" alt="image" src="https://github.com/Vicky2KR/Code-deploy/assets/115537512/76866f96-0cf0-4bbc-93fc-ecbc0bd70be4">
 
 
-**Step 1:Create two IAM roles: **
+**Step 1:Create two IAM roles:**
 
 1. AmazonEC2RoleforAWSCodeDeploy and AmazonS3FullAccess
 2. Codedeplyrole
@@ -35,9 +35,13 @@ These roles will be used to deploy applications using AWS CodeDeploy.
 
 **Step 2 :Create 4 ec2 instances with basic configuration (free tier) and keep the below  mentioned commands in the user data section.**
 
+<pre>
+```bash
 *Choose AMI: Amazon Linux 2
 *Instance Type : t2.micro
 *no. of Instances: 4
+```
+</pre>
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/ba0ff7dc-d853-4558-a138-d1bfdaf33346)
 
@@ -47,7 +51,6 @@ These roles will be used to deploy applications using AWS CodeDeploy.
 
 User data : This user data includes installation of some software like aws codedeploy, aws cli etc.
 
-<img width="490" alt="image" src="https://github.com/Vicky2KR/Code-deploy/assets/115537512/532f7a87-f31e-46c4-b5d1-107741acf7b5">
 
 <pre>
 ```bash
@@ -130,22 +133,28 @@ Note: create a new security group and open port 80(http) and 22(ssh) and attach 
 -open port 8080 additionally  since Jenkins is accessible over that port.
 
 **Step 7: Create Code Deploy**
-
+<pre>
+```bash
 -Create application:
 Application Name : code-deploy-app
 Compute Platform : EC2/OnPremises
+```
+</pre>
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/70cbe42d-7ab0-42da-b8b6-91f3b8b5597b)
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/5b162c2e-cad9-478a-aa54-c374dc3d36db)
 
 -Create Deploymentgroup:
-
+<pre>
+```bash
 *Enter a deployment group name: code-deploy-dg
 *Service role ARN: 
 *Deployment type: In-place
 *Deployment configuration: CodeDeployDefault.AllAtOnce
 *Environment configuration: Amazon EC2 AutoScaling groups
+```
+</pre>
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/fa8584de-e77f-4b1f-8b61-5b5946828b33)
 
