@@ -35,13 +35,12 @@ These roles will be used to deploy applications using AWS CodeDeploy.
 
 **Step 2 :Create 4 ec2 instances with basic configuration (free tier) and keep the below  mentioned commands in the user data section.**
 
-<pre>
-```bash
-*Choose AMI: Amazon Linux 2
-*Instance Type : t2.micro
-*no. of Instances: 4
-```
-</pre>
+
+     
+- Choose AMI: Amazon Linux 2
+- Instance Type : t2.micro
+- no. of Instances: 4
+
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/ba0ff7dc-d853-4558-a138-d1bfdaf33346)
 
@@ -133,28 +132,24 @@ Note: create a new security group and open port 80(http) and 22(ssh) and attach 
 -open port 8080 additionally  since Jenkins is accessible over that port.
 
 **Step 7: Create Code Deploy**
-<pre>
-```bash
--Create application:
-Application Name : code-deploy-app
-Compute Platform : EC2/OnPremises
-```
-</pre>
+
+* Create application:
+- Application Name : code-deploy-app
+-  Compute Platform : EC2/OnPremises
+
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/70cbe42d-7ab0-42da-b8b6-91f3b8b5597b)
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/5b162c2e-cad9-478a-aa54-c374dc3d36db)
 
--Create Deploymentgroup:
-<pre>
-```bash
-*Enter a deployment group name: code-deploy-dg
-*Service role ARN: 
-*Deployment type: In-place
-*Deployment configuration: CodeDeployDefault.AllAtOnce
-*Environment configuration: Amazon EC2 AutoScaling groups
-```
-</pre>
+* Create Deploymentgroup:
+
+- Enter a deployment group name: code-deploy-dg
+- Service role ARN: 
+- Deployment type: In-place
+- Deployment configuration: CodeDeployDefault.AllAtOnce
+- Environment configuration: Amazon EC2 AutoScaling groups
+
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/fa8584de-e77f-4b1f-8b61-5b5946828b33)
 
