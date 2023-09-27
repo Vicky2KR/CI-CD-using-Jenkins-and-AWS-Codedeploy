@@ -42,15 +42,29 @@ These roles will be used to deploy applications using AWS CodeDeploy.
 User data : This user data includes installation of some software like aws codedeploy, aws cli etc.
 
 #!/bin/bash
-| sudo yum -y update |
-| sudo yum -y install ruby |
-| sudo yum -y install wget |
-| cd /home/ec2-user |
-| wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install |
-| sudo chmod +x ./install |
-| sudo ./install auto |
-| sudo yum install -y python-pip |
-| sudo pip install awscli |
+sudo yum -y update 
+sudo yum -y install ruby 
+sudo yum -y install wget 
+cd /home/ec2-user 
+wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install 
+sudo chmod +x ./install 
+sudo ./install auto 
+sudo yum install -y python-pip 
+sudo pip install awscli 
+
+To create a table format for the commands you provided in GitHub, you can use the following Markdown syntax:
+
+| Command | Description |
+|---|---|---|
+| sudo yum -y update | Updates the EC2 instance packages. |
+| sudo yum -y install ruby | Installs the Ruby programming language. |
+| sudo yum -y install wget | Installs the wget command-line utility. |
+| cd /home/ec2-user | Changes the directory to the /home/ec2-user directory. |
+| wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install | Downloads the latest version of the AWS CodeDeploy agent installation file. |
+| sudo chmod +x ./install | Sets the execute permission on the AWS CodeDeploy agent installation file. |
+| sudo ./install auto | Installs the AWS CodeDeploy agent in auto mode. |
+| sudo yum install -y python-pip | Installs the Python pip package manager. |
+| sudo pip install awscli | Installs the AWS CLI using pip. |
 
 * Once the instance are up and running assign the fist created IAM role to all 4 EC2 instances
 
