@@ -27,7 +27,8 @@ Solution :
 2. Codedeplyrole
 These roles will be used to deploy applications using AWS CodeDeploy.
 
-![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/ec37b4ad-9c17-40c9-b59f-b48d5bf1f76c)
+![image](https://github.com/Vicky2KR/CI-CD-using-Jenkins-and-AWS-Codedeploy/assets/115537512/2a327b4d-b4b8-47c7-b3ea-981bba7a69d4)
+
 
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/42e9879c-e78e-4e3b-b1c7-c9d53c991401)
