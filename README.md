@@ -49,6 +49,8 @@ User data : This user data includes installation of some software like aws coded
 
 <img width="490" alt="image" src="https://github.com/Vicky2KR/Code-deploy/assets/115537512/532f7a87-f31e-46c4-b5d1-107741acf7b5">
 
+<pre>
+```bash
 #!/bin/bash
 sudo yum -y update
 sudo yum -y install ruby
@@ -59,6 +61,8 @@ sudo chmod +x ./install
 sudo ./install auto
 sudo yum install -y python-pip
 sudo pip install awscli
+```
+</pre>
 
 Note :Bucket-name is the name of the Amazon S3 bucket that contains the CodeDeploy Resource Kit files for your region. region-identifier is the identifier for your region.to find bucket name and region (https://docs.aws.amazon.com/codedeploy/latest/userguide/resource-kit.html#resource-kit-bucket-names)
 
