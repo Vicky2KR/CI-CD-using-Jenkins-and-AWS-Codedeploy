@@ -48,6 +48,7 @@ These roles will be used to deploy applications using AWS CodeDeploy.
 User data : This user data includes installation of some software like aws codedeploy, aws cli etc.
 
 <img width="490" alt="image" src="https://github.com/Vicky2KR/Code-deploy/assets/115537512/532f7a87-f31e-46c4-b5d1-107741acf7b5">
+
 #!/bin/bash
 sudo yum -y update
 sudo yum -y install ruby
