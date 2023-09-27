@@ -1,4 +1,4 @@
-![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/9da85b39-0215-4432-af03-dc67d626cecb)# Code-deploy
+# Code-deploy
 
 This project is to Set up a CI/CD pipeline using Jenkins, Github, Amazon Codedeploy and AWS EC2.
 
@@ -21,7 +21,7 @@ Solution :
 <img width="425" alt="image" src="https://github.com/Vicky2KR/Code-deploy/assets/115537512/76866f96-0cf0-4bbc-93fc-ecbc0bd70be4">
 
 
-Step 1:Create two IAM roles: 
+**Step 1:Create two IAM roles: **
 1. AmazonEC2RoleforAWSCodeDeploy and AmazonS3FullAccess
 2. Codedeplyrole
 These roles will be used to deploy applications using AWS CodeDeploy.
@@ -32,8 +32,7 @@ These roles will be used to deploy applications using AWS CodeDeploy.
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/42e9879c-e78e-4e3b-b1c7-c9d53c991401)
 
 
-Step 2 :Create 4 ec2 instances with basic configuration (free tier) and keep the below  mentioned commands in the user data section.
-
+**Step 2 :Create 4 ec2 instances with basic configuration (free tier) and keep the below  mentioned commands in the user data section.**
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/ba0ff7dc-d853-4558-a138-d1bfdaf33346)
 
 -Create security group to allow port 22(ssh) and port (80).
@@ -55,13 +54,13 @@ sudo pip install awscli
 
 * Once the instance are up and running assign the fist created IAM role to all 4 EC2 instances
 
-Step 3: Create an image from any of the instance which we will use in autoscaling group.
+**Step 3: Create an image from any of the instance which we will use in autoscaling group.**
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/3372fee6-b184-4cab-a054-af7fba214e93)
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/14eae174-70c9-48ad-b7ae-2b2143b99bf9)
 
-Step 4: Create target group and Application Load balancer.
+**Step 4: Create target group and Application Load balancer.**
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/13928959-0603-4188-a5f1-558f45e253ac)
 
@@ -88,7 +87,7 @@ Step 4: Create target group and Application Load balancer.
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/40d591ff-534e-4c62-8521-bfcf08166baa)
 
-Step 5: Create launch template and Autoscaling group.
+**Step 5: Create launch template and Autoscaling group.**
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/f89a13d4-5c2b-45e8-90ad-d8af236a48c3)
 
@@ -112,19 +111,19 @@ Note: create a new security group and open port 80(http) and 22(ssh) and attach 
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/a678a75a-bdca-4e5e-8a78-8223e1e06280)
 
-Step 6: Create a new EC2 instance and install Jenkins software and install git as well by using the command **yum install git -y**
+**Step 6: Create a new EC2 instance and install Jenkins software and install git as well by using the command **yum install git -y****
 
 -open port 8080 additionally  since Jenkins is accessible over that port.
 
-Step 7: Create Code Deploy
+**Step 7: Create Code Deploy**
 
--Create application.
+-Create application:
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/70cbe42d-7ab0-42da-b8b6-91f3b8b5597b)
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/5b162c2e-cad9-478a-aa54-c374dc3d36db)
 
--Create Deploymentgroup.
+-Create Deploymentgroup:
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/8f66cd0b-2ab8-4e18-a351-fff97b02edd9)
 
@@ -137,7 +136,7 @@ Step 7: Create Code Deploy
  ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/5b9c22ad-c9bb-4219-be99-f4a13d19ca4e)
 
  
-Step 8:Create S3 bucket.
+**Step 8:Create S3 bucket.**
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/e68f284c-0cf4-4f9a-b8b3-3c3ce292a1a3)
 
@@ -148,8 +147,7 @@ Step 8:Create S3 bucket.
 
 **Now we will use Jenkins for Creating a pipeline that will use github as asource and will run the CodeDeploy.**
 
-Step 9:
--Go to the Jenkins server.( you can access the jenkins server using **ip-address:8080**) and install suggested plugins.
+****Step 9:**Go to the Jenkins server.( you can access the jenkins server using **ip-address:8080**) and install suggested plugins.****
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/c520de27-f59c-463a-9289-5b19fe109192)
 
@@ -194,7 +192,7 @@ As soon as we will hit the Build Now button the job will run and trigger for cod
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/9e598955-bb9c-4f9d-8ae4-073bcbba79b6)
 
-Step 10: Go to AWS Load balancer portal and go to that particular ELB we have Created and copy the DNS and paste it on browser , our application will be running
+**Step 10: Go to AWS Load balancer portal and go to that particular ELB we have Created and copy the DNS and paste it on browser , our application will be running.**
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/87a58ac8-3416-4bd9-9019-8179cefd73d9)
 
