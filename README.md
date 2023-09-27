@@ -40,7 +40,8 @@ These roles will be used to deploy applications using AWS CodeDeploy.
 <img width="386" alt="image" src="https://github.com/Vicky2KR/CI-CD-using-Jenkins-and-AWS-Codedeploy/assets/115537512/f3ab4fa6-2d26-4ab7-b102-0db7dd4d9bc1">
 
 
-![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/42e9879c-e78e-4e3b-b1c7-c9d53c991401)
+![image](https://github.com/Vicky2KR/CI-CD-using-Jenkins-and-AWS-Codedeploy/assets/115537512/175c8e54-f0a6-48f6-8149-688a49718a99)
+
 
 
 **Step 2 :Create 4 ec2 instances with basic configuration (free tier) and keep the below  mentioned commands in the user data section.**
