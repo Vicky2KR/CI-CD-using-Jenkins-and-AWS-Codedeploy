@@ -37,6 +37,9 @@ This solution will provide a scalable and reliable way to deploy and manage your
 2. Codedeplyrole
 These roles will be used to deploy applications using AWS CodeDeploy.
 
+<img width="386" alt="image" src="https://github.com/Vicky2KR/CI-CD-using-Jenkins-and-AWS-Codedeploy/assets/115537512/f3ab4fa6-2d26-4ab7-b102-0db7dd4d9bc1">
+
+
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/42e9879c-e78e-4e3b-b1c7-c9d53c991401)
 
 
@@ -213,7 +216,7 @@ Note: create a new security group and open port 80(http) and 22(ssh) and attach 
 
 <img width="151" alt="image" src="https://github.com/Vicky2KR/Code-deploy/assets/115537512/31f57097-bae2-4064-9ee4-92037616cbe1">
 
--Give all the details related the codedeploy application, deployment group and s3 bucket.
+-Give all the details related to the codedeploy application, deployment group and s3 bucket.
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/8ad5005f-a12e-4e5a-9cb7-aba1c0840304)
 
