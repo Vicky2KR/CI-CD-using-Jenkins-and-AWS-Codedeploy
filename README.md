@@ -37,10 +37,6 @@ This solution will provide a scalable and reliable way to deploy and manage your
 2. Codedeplyrole
 These roles will be used to deploy applications using AWS CodeDeploy.
 
-![image](https://github.com/Vicky2KR/CI-CD-using-Jenkins-and-AWS-Codedeploy/assets/115537512/0b31f353-cf3f-4f63-a64a-c45515265dd9)
-
-
-
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/42e9879c-e78e-4e3b-b1c7-c9d53c991401)
 
 
@@ -245,7 +241,7 @@ and we can see that data is getting stored in the s3 bucket as well.
 
 **This is the first version of application.**
 
-<img width="768" alt="image" src="https://github.com/Vicky2KR/CI-CD-using-Jenkins-and-AWS-Codedeploy/assets/115537512/8aaf5011-637d-43a4-867d-e3f9cd6e1cb7">
+![image](https://github.com/Vicky2KR/CI-CD-using-Jenkins-and-AWS-Codedeploy/assets/115537512/0b31f353-cf3f-4f63-a64a-c45515265dd9)
 
 **Now if i made any change to the code it will automatically reflect to the Web browser within some minutes.**
 
