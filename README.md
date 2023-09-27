@@ -22,6 +22,7 @@ Solution :
 
 
 **Step 1:Create two IAM roles: **
+
 1. AmazonEC2RoleforAWSCodeDeploy and AmazonS3FullAccess
 2. Codedeplyrole
 These roles will be used to deploy applications using AWS CodeDeploy.
@@ -33,6 +34,11 @@ These roles will be used to deploy applications using AWS CodeDeploy.
 
 
 **Step 2 :Create 4 ec2 instances with basic configuration (free tier) and keep the below  mentioned commands in the user data section.**
+
+*Choose AMI: Amazon Linux 2
+*Instance Type : t2.micro
+*no. of Instances: 4
+
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/ba0ff7dc-d853-4558-a138-d1bfdaf33346)
 
 -Create security group to allow port 22(ssh) and port (80).
@@ -41,30 +47,19 @@ These roles will be used to deploy applications using AWS CodeDeploy.
 
 User data : This user data includes installation of some software like aws codedeploy, aws cli etc.
 
+<img width="490" alt="image" src="https://github.com/Vicky2KR/Code-deploy/assets/115537512/532f7a87-f31e-46c4-b5d1-107741acf7b5">
 #!/bin/bash
-sudo yum -y update 
-sudo yum -y install ruby 
-sudo yum -y install wget 
-cd /home/ec2-user 
-wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install 
-sudo chmod +x ./install 
-sudo ./install auto 
-sudo yum install -y python-pip 
-sudo pip install awscli 
+sudo yum -y update
+sudo yum -y install ruby
+sudo yum -y install wget
+cd /home/ec2-user
+wget https://bucket-name.s3.region-identifier.amazonaws.com/latest/install
+sudo chmod +x ./install
+sudo ./install auto
+sudo yum install -y python-pip
+sudo pip install awscli
 
-To create a table format for the commands you provided in GitHub, you can use the following Markdown syntax:
-
-| Command | Description |
-|---|---|---|
-| sudo yum -y update | Updates the EC2 instance packages. |
-| sudo yum -y install ruby | Installs the Ruby programming language. |
-| sudo yum -y install wget | Installs the wget command-line utility. |
-| cd /home/ec2-user | Changes the directory to the /home/ec2-user directory. |
-| wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install | Downloads the latest version of the AWS CodeDeploy agent installation file. |
-| sudo chmod +x ./install | Sets the execute permission on the AWS CodeDeploy agent installation file. |
-| sudo ./install auto | Installs the AWS CodeDeploy agent in auto mode. |
-| sudo yum install -y python-pip | Installs the Python pip package manager. |
-| sudo pip install awscli | Installs the AWS CLI using pip. |
+Note :Bucket-name is the name of the Amazon S3 bucket that contains the CodeDeploy Resource Kit files for your region. region-identifier is the identifier for your region.to find bucket name and region (https://docs.aws.amazon.com/codedeploy/latest/userguide/resource-kit.html#resource-kit-bucket-names)
 
 * Once the instance are up and running assign the fist created IAM role to all 4 EC2 instances
 
@@ -132,6 +127,8 @@ Note: create a new security group and open port 80(http) and 22(ssh) and attach 
 **Step 7: Create Code Deploy**
 
 -Create application:
+Application Name : code-deploy-app
+Compute Platform : EC2/OnPremises
 
 ![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/70cbe42d-7ab0-42da-b8b6-91f3b8b5597b)
 
@@ -139,11 +136,18 @@ Note: create a new security group and open port 80(http) and 22(ssh) and attach 
 
 -Create Deploymentgroup:
 
-![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/8f66cd0b-2ab8-4e18-a351-fff97b02edd9)
+*Enter a deployment group name: code-deploy-dg
+*Service role ARN: 
+*Deployment type: In-place
+*Deployment configuration: CodeDeployDefault.AllAtOnce
+*Environment configuration: Amazon EC2 AutoScaling groups
+
+![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/fa8584de-e77f-4b1f-8b61-5b5946828b33)
 
 -Select Amazon Ec2 ASG which we have Created earlier.
 
-![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/1f3a4156-4fdf-4a96-86ef-7299bb4505f5)
+![image](https://github.com/Vicky2KR/Code-deploy/assets/115537512/93f323e4-33f7-4823-9efa-2e33ea09f339)
+
 
  -Select Application Load balancer which we have created
 
