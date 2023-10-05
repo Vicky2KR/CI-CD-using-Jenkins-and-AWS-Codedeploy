@@ -25,7 +25,7 @@ Solution :
 
 * CodeDeploy will be used to deploy the web application to the EC2 instances. It will pull the latest code from the repository and deploy it to the EC2 instances.
 
-* We use an S3 bucket in this project to store the web application code and artifacts.
+* CodeDeploy will get the appsec file from the application revision that is being deployed. The application revision is a snapshot of the application code and configuration that is stored in Amazon S3.
 This solution will provide a scalable and reliable way to deploy and manage your web application.
 
 <img width="425" alt="image" src="https://github.com/Vicky2KR/Code-deploy/assets/115537512/76866f96-0cf0-4bbc-93fc-ecbc0bd70be4">
